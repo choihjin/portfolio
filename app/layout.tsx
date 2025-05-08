@@ -12,10 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
-  title: {
-    default: metaData.title,
-    template: `%s | ${metaData.title}`,
-  },
+  title: metaData.title,
   description: metaData.description,
   openGraph: {
     images: metaData.ogImage,
@@ -76,7 +73,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40">
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
           <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[624px] w-full">
             <Navbar />
             {children}
