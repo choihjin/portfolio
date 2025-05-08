@@ -1,21 +1,55 @@
 export interface Project {
-  title: string;
-  year: number;
+  name: string;
+  date: string;
   description: string;
-  url: string;
+  link: string;
+  tags: string[];
 }
 
-export const projects: Project[] = [
+export const teamProjects: Project[] = [
   {
-    title: "Mithril AI",
-    year: 2024,
-    description: "Open science AI resarch lab",
-    url: "https://github.com/mithrilai",
+    name: "Road Video Restoration",
+    date: "2023.06~2024.12",
+    description: "딥러닝을 활용한 도로 영상 복원 기술 개발",
+    link: "https://github.com/yourgithub/express-boilerplate",
+    tags: ["Python", "PyTorch", "TensorFlow", "OpenCV"]
   },
   {
-    title: "OpenDeepLearning",
-    year: 2023,
-    description: "Open source AI education resources",
-    url: "https://opendeeplearning.xyz/",
+    name: "Image De-identification",
+    date: "2023.06~2023.12",
+    description: "도로 이미지의 개인정보 익명화 프로세스 개발",
+    link: "https://github.com/yourgithub/moment",
+    tags: ["Python", "PyTorch", "TensorFlow", "OpenCV"]
   },
+  {
+    name: "Root Image Recognition",
+    date: "2023.02~2023.06",
+    description: "뿌리 이미지를 인식하는 AI 모델 개발",
+    link: "https://github.com/yourgithub/hello-mirror",
+    tags: ["Python", "CNN", "OpenCV"]
+  },
+  {
+    name: "Smart Switch",
+    date: "2024.05~2024.06",
+    description: "스마트 스위치 기능 구현",
+    link: "https://github.com/yourgithub/hello-mirror",
+    tags: ["Python", "CNN", "OpenCV"]
+  }
+];
+
+export const personalProjects: Project[] = [
+  {
+    name: "Vehicle Features",
+    date: "2022.10~2022.12",
+    description: "차량 관련 기능 구현 프로젝트",
+    link: "https://github.com/yourgithub/portfolio",
+    tags: ["C++", "OpenCV", "YOLO"]
+  },
+  {
+    name: "Portfolio",
+    date: "2025.03~Present",
+    description: "개인 포트폴리오 웹사이트",
+    link: "https://github.com/yourgithub/portfolio",
+    tags: ["Vue.js", "Tailwind CSS"]
+  }
 ];
