@@ -5,20 +5,28 @@ import { socialLinks } from "./config";
 
 const skills = [
   {
-    category: "Languages",
-    items: ["C / C++", "Java", "Python"],
+    category: "Programming Languages",
+    items: ["Python", "Java", "C / C++"],
   },
   {
-    category: "AI & Data Analysis",
-    items: ["PyTorch", "TensorFlow", "OpenCV", "Numpy", "Pandas", "Matplotlib"],
+    category: "MLOps",
+    items: ["PyTorch", "MLFlow", "Hugging Face"], // tensorflow, openCV 제외
+  },
+  // {
+  //   category: "Data Processing",
+  //   items: ["Pandas", "NumPy", "Matplotlib"],
+  // },
+  {
+    category: "Data Engineering",
+    items: ["Apache Spark", "Apache Kafka", "Apache Airflow"],
   },
   {
-    category: "Databases & Backend",
-    items: ["MySQL", "PostgreSQL"],
+    category: "Backend & Database",
+    items: ["FastAPI", "PostgreSQL", "MySQL"],
   },
   {
-    category: "DevOps & Tools",
-    items: ["Git", "GitHub", "Linux"],
+    category: "DevOps",
+    items: ["Docker", "Docker Compose", "Git", "GitHub"],
   },
 ];
 
@@ -29,18 +37,31 @@ export default function Page() {
         <h1 className="mb-4 text-2xl font-medium">About Me</h1>
         <div className="space-y-2">
           <p>
-            안녕하세요. 끊임없이 성장하는 개발자입니다.
+            안녕하세요. AI와 데이터 엔지니어링에 열정을 가진 개발자입니다.
           </p>
           <p>
-            Deep Learning 연구와 AI 기반 프로젝트 개발에 관심이 많으며,
+            머신러닝 모델 개발과 대규모 데이터 처리 시스템 구축에 전문성을 가지고 있으며,
           </p>
           <p>
-            다양한 산업-학술 협업 프로젝트를 진행하며 경험을 쌓아왔습니다.
+            산업-학술 협업 프로젝트를 통해 실제 문제 해결 경험을 쌓아왔습니다.
+          </p>
+          <p>
+            새로운 기술을 배우고 적용하는 것을 즐기며, 지속적인 성장을 추구합니다.
           </p>
         </div>
 
         <h1 className="mt-8 mb-4 text-2xl font-medium">Education</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">2025.01 ~ Present</p>
+            <p className="font-medium">SSAFY 13th</p>
+          </div>
+          <div>
+            <div className="space-y-1">
+              <p>삼성 청년 SW AI 아카데미</p>
+              <p>Data Track</p>
+            </div>
+          </div>
           <div>
             <p className="text-sm text-neutral-600 dark:text-neutral-400">2019.03 ~ 2025.02</p>
             <p className="font-medium">한동대학교</p>
