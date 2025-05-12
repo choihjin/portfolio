@@ -8,14 +8,14 @@ export interface Project {
 
 export const teamProjects: Project[] = [
   {
-    name: "Road Image Restoration",
+    name: "License Plate Restoration",
     date: "2023.06~2024.12",
     description: "딥러닝을 활용한 도로 영상 복원 기술 개발",
     link: "https://github.com/choihjin/SuperResolution",
     tags: ["Python", "PyTorch", "TensorFlow", "OpenCV"]
   },
   {
-    name: "Image De-identification",
+    name: "Road Image De-identification",
     date: "2023.06~2023.12",
     description: "도로 이미지의 개인정보 익명화 프로세스 개발",
     link: "https://github.com/choihjin/De-identification",
