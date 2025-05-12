@@ -1,51 +1,91 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import fs from "fs";
+import path from "path";
 
-const postsDirectory = path.join(process.cwd(), 'content');
-
-export interface Post {
-  slug: string;
+type Metadata = {
   title: string;
-  date: string;
-  content: string;
-  excerpt: string;
-}
+  publishedAt: string;
+  summary: string;
+  tags: string;
+  image?: string;
+};
 
-export function getAllPosts(): Post[] {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, '');
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
+function parseFrontmatter(fileContent: string) {
+  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
+  let match = frontmatterRegex.exec(fileContent);
+  let frontMatterBlock = match![1];
+  let content = fileContent.replace(frontmatterRegex, "").trim();
+  let frontMatterLines = frontMatterBlock.trim().split("\n");
+  let metadata: Partial<Metadata> = {};
 
-    return {
-      slug,
-      title: data.title,
-      date: data.date,
-      content,
-      excerpt: data.excerpt || '',
-    };
+  frontMatterLines.forEach((line) => {
+    let [key, ...valueArr] = line.split(": ");
+    let value = valueArr.join(": ").trim();
+    value = value.replace(/^['"](.*)['"]$/, "$1"); 
+    metadata[key.trim() as keyof Metadata] = value;
   });
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return { metadata: metadata as Metadata, content };
 }
 
-export function getPostBySlug(slug: string): Post | null {
-  try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
+function getMDXFiles(dir: string) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+}
+
+function readMDXFile(filePath: string) {
+  let rawContent = fs.readFileSync(filePath, "utf-8");
+  return parseFrontmatter(rawContent);
+}
+
+function getMDXData(dir: string) {
+  let mdxFiles = getMDXFiles(dir);
+  return mdxFiles.map((file) => {
+    let { metadata, content } = readMDXFile(path.join(dir, file));
+    let slug = path.basename(file, path.extname(file));
 
     return {
+      metadata,
       slug,
-      title: data.title,
-      date: data.date,
       content,
-      excerpt: data.excerpt || '',
     };
-  } catch (error) {
-    return null;
+  });
+}
+
+export function getBlogPosts() {
+  return getMDXData(path.join(process.cwd(), "content"));
+}
+
+export function formatDate(date: string, includeRelative = false) {
+  let currentDate = new Date();
+  if (!date.includes("T")) {
+    date = `${date}T00:00:00`;
   }
-} 
+  let targetDate = new Date(date);
+
+  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
+  let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
+  let daysAgo = currentDate.getDate() - targetDate.getDate();
+
+  let formattedDate = "";
+
+  if (yearsAgo > 0) {
+    formattedDate = `${yearsAgo}y ago`;
+  } else if (monthsAgo > 0) {
+    formattedDate = `${monthsAgo}mo ago`;
+  } else if (daysAgo > 0) {
+    formattedDate = `${daysAgo}d ago`;
+  } else {
+    formattedDate = "Today";
+  }
+
+  let fullDate = targetDate.toLocaleString("en-us", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
+  if (!includeRelative) {
+    return fullDate;
+  }
+
+  return `${fullDate} (${formattedDate})`;
+}
