@@ -69,7 +69,7 @@ export default function Page() {
           <div>
             <div className="space-y-1">
               <p>AI 컴퓨터공학심화</p>
-              <p>4.04 / 4.5</p>
+              <p>4.01 / 4.5</p>
               <p>4.27 / 4.5 (major)</p>
             </div>
           </div>
