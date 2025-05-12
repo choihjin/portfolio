@@ -1,59 +1,52 @@
-# Nextfolio
+# 포트폴리오 웹사이트
 
-A clean, fast, and lightweight portfolio template built with [Next.js](https://nextjs.org/), [Vercel](https://vercel.com/), and [Tailwind CSS](https://tailwindcss.com/).
+## 주요 기능
+- 반응형 웹 디자인
+- 다크 모드 지원
+- 기술 스택 및 프로젝트 소개
+- 교육 및 경력 사항 표시
+- 소셜 미디어 링크 통합
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio)
+## 기술 스택
+- **프론트엔드**: 
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+- **개발 도구**:
+  - pnpm (패키지 매니저)
+  - Git (버전 관리)
+- **배포**:
+  - Vercel
 
-## Technologies Used
-
-- Framework: [Next.js](https://nextjs.org/)
-- Styling: [Tailwind CSS](https://tailwindcss.com/)
-- Analytics: [Vercel Web Analytics](https://vercel.com/docs/speed-insights) and [Speed Insights](https://vercel.com/docs/speed-insights)
-- Deployment: [Vercel](https://vercel.com/)
-
-## Features
-
-- **[MDX](https://mdxjs.com/) Support**: Use Markdown with JSX components for blog posts.
-- **Light and Dark Mode Toggle**: Switch between themes for better readability.
-- **Dynamic [OG Images](https://vercel.com/docs/functions/og-image-generation)**: Auto-generate Open Graph images for sharing.
-- **SEO Optimization**: Enhance search visibility with sitemap, robots.txt, and JSON-LD schema.
-- **Dynamic Feed Generation**: Automatic dynamic [RSS](https://nextfolio-template.vercel.app/rss.xml), [Atom](https://nextfolio-template.vercel.app/atom.xml), and [JSON](https://nextfolio-template.vercel.app/feed.json) feeds.
-- **[KaTeX](https://katex.org/) Integration**: Render mathematical expressions smoothly.
-- **Performance Tracking**: Monitor web performance with [Vercel Web Analytics](https://vercel.com/docs/speed-insights) and [Speed Insights](https://vercel.com/docs/speed-insights).
-- **Interactive Embeds**: Easily embed interactive tweets and YouTube videos.
-- **Captions**: Add descriptive captions to photos, tweets, and videos.
-- **Image Grid**: Easily showcase image galleries or photos.
-
-## Installation
-
-Nextfolio uses [pnpm](https://pnpm.io/installation) for dependency management, so ensure it is installed on your system.
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
+## 프로젝트 구조
 ```
-pnpm create next-app --example https://github.com/1msirius/Nextfolio my-portfolio
+portfolio/
+├── app/                    # Next.js 앱 디렉토리
+│   ├── components/        # 재사용 가능한 컴포넌트
+│   ├── config.ts         # 설정 파일
+│   └── page.tsx          # 메인 페이지
+├── public/               # 정적 파일
+├── styles/              # 전역 스타일
+└── package.json         # 프로젝트 의존성
 ```
 
-Start the development server:
-
+## 설치 및 실행
+1. 저장소 클론
+```bash
+git clone [repository-url]
 ```
+
+2. 의존성 설치
+```bash
+pnpm install
+```
+
+3. 개발 서버 실행
+```bash
 pnpm dev
 ```
 
-The server will be running at [http://localhost:3000](http://localhost:3000).
-
-## Configuration
-
-1. Update the site metadata and social links in `app/config.ts` to set up SEO, feeds, social links, and Open Graph settings.
-2. Update your routes in `app/sitemap.ts` for SEO optimization.
-3. Update your blog posts in the `/content` folder.
-
-For more information about configuration, follow the instructions in the [Getting Started](https://nextfolio-template.vercel.app/blog/getting-started#configuration) post.
-
-## Contributing
-
-Contributions are welcome! To get involved, just push your code to the repo. Whether you're enhancing existing features or adding new ones, your efforts are greatly appreciated!
-
-## Licence
-
-Nextfolio is open-source and released under the MIT License.
+## 참고 문헌
+1. Next.js 공식 문서
+2. Tailwind CSS 공식 문서
+3. TypeScript 핸드북
