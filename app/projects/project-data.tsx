@@ -8,7 +8,14 @@ export interface Project {
 
 export const teamProjects: Project[] = [
   {
-    name: "License Plate Restoration",
+    name: "SSABAB",
+    date: "2025.04~2025.06",
+    description: "SSAFY 13th 팀 프로젝트",
+    link: "https://github.com/ssabab/ssabab-mlops",
+    tags: ["Python", "BeautifulSoup", "Pandas"]
+  },
+  {
+    name: "LPR2",
     date: "2023.06~2024.12",
     description: "딥러닝을 활용한 도로 영상 복원 기술 개발",
     link: "https://github.com/choihjin/SuperResolution",
@@ -38,6 +45,13 @@ export const teamProjects: Project[] = [
 ];
 
 export const personalProjects: Project[] = [
+  {
+    name: "SSAFIT",
+    date: "2025.04~2025.05",
+    description: "IT 뉴스 데이터 수집 및 분석 프로젝트",
+    link: "https://github.com/choihjin/news-data-project",
+    tags: ["Python", "BeautifulSoup", "Pandas"]
+  },
   {
     name: "Vehicle Features",
     date: "2022.10~2022.12",

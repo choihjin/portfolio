@@ -2,31 +2,45 @@
 import React from "react";
 import Image from "next/image";
 import { socialLinks } from "./config";
+import { SiPytorch, SiMlflow, SiHuggingface, SiApachespark, SiApachekafka, SiApacheairflow, SiApachehadoop, SiElasticsearch, SiDjango, SiFastapi, SiPostgresql, SiMysql, SiDocker, SiGit, SiGithub, SiGitlab } from "react-icons/si";
+import { FaDocker } from "react-icons/fa";
 
 const skills = [
   {
-    category: "Programming Languages",
-    items: ["Python", "Java", "C / C++"],
-  },
-  {
     category: "MLOps",
-    items: ["PyTorch", "MLFlow", "Hugging Face"], // tensorflow, openCV 제외
+    items: [
+      { name: "PyTorch", icon: SiPytorch },
+      { name: "MLFlow", icon: SiMlflow },
+      { name: "Hugging Face", icon: SiHuggingface },
+    ],
   },
-  // {
-  //   category: "Data Processing",
-  //   items: ["Pandas", "NumPy", "Matplotlib"],
-  // },
   {
     category: "Data Engineering",
-    items: ["Apache Spark", "Apache Kafka", "Apache Airflow"],
+    items: [
+      { name: "Apache Spark", icon: SiApachespark },
+      { name: "Apache Kafka", icon: SiApachekafka },
+      { name: "Apache Airflow", icon: SiApacheairflow },
+      { name: "Apache Hadoop", icon: SiApachehadoop },
+      { name: "Elasticsearch", icon: SiElasticsearch },
+    ],
   },
   {
     category: "Backend & Database",
-    items: ["FastAPI", "PostgreSQL", "MySQL"],
+    items: [
+      { name: "Django", icon: SiDjango },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "MySQL", icon: SiMysql },
+    ],
   },
   {
     category: "DevOps",
-    items: ["Docker", "Docker Compose", "Git", "GitHub"],
+    items: [
+      { name: "Docker", icon: SiDocker },
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
+      { name: "GitLab", icon: SiGitlab },
+    ],
   },
 ];
 
@@ -85,7 +99,10 @@ export default function Page() {
               <div>
                 <ul className="space-y-1">
                   {skill.items.map((item, idx) => (
-                    <li key={idx}>{item}</li>
+                    <li key={idx} className="flex items-center gap-2">
+                      <item.icon className="w-6 h-7" />
+                      <span className="text-base">{item.name}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
