@@ -4,6 +4,8 @@ import { useTheme } from "next-themes";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
 import { FaCircleHalfStroke } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const storageKey = 'theme-preference';
 
@@ -21,35 +23,29 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   );
 }
 
-export const ThemeSwitch: React.FC = () => {
+export function ThemeSwitch() {
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) {
-    return (
-      <FaCircleHalfStroke
-        className="h-[14px] w-[14px] text-[#1c1c1c]"
-        aria-hidden="true"
-      />
-    );
+    return null;
   }
 
   return (
     <button
-      id="theme-toggle"
-      aria-label={`${theme} mode`}
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+      aria-label="Toggle theme"
     >
-      <FaCircleHalfStroke
-        className={`h-[14px] w-[14px] ${
-          theme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
-        }`}
-      />
+      {theme === "dark" ? (
+        <FiSun className="w-5 h-5 text-yellow-500" />
+      ) : (
+        <FiMoon className="w-5 h-5 text-gray-700" />
+      )}
     </button>
   );
-};
+}
