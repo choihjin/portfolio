@@ -1,50 +1,64 @@
 "use client";
 
 import Link from "next/link";
-import { teamProjects, personalProjects } from "./project-data";
+import { projects } from "./project-data";
 
 export default function Projects() {
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium">Team Projects</h1>
-      <div>
-        {teamProjects.map((project, index) => (
-          <Link
-            key={index}
-            href={project.link}
-            className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-              <h2 className="text-black dark:text-white">{project.name}</h2>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                {project.description}
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      <h1 className="mt-16 mb-8 text-2xl font-medium">Personal Projects</h1>
-      <div>
-        {personalProjects.map((project, index) => (
-          <Link
-            key={index}
-            href={project.link}
-            className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-              <h2 className="text-black dark:text-white">{project.name}</h2>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                {project.description}
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
+    <div className="min-h-screen bg-[#fafafa] dark:bg-[#111]">
+      <section className="min-h-screen flex items-center justify-center py-32">
+        <div className="w-full max-w-[1400px] px-8">
+          <h1 className="text-8xl font-bold text-[#111] dark:text-white mb-16">
+            Projects
+          </h1>
+          <div className="space-y-32">
+            {projects.map((project, index) => (
+              <div key={index} className="group">
+                {project.image && (
+                  <div className="aspect-video mb-8 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div className="grid md:grid-cols-2 gap-16">
+                  <div>
+                    <div className="text-sm text-[#666] dark:text-[#999] mb-2">
+                      {project.date}
+                    </div>
+                    <h2 className="text-4xl font-bold text-[#111] dark:text-white mb-4">
+                      {project.title}
+                    </h2>
+                    <p className="text-lg text-[#666] dark:text-[#999]">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-4">
+                    {project.tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-6 py-3 bg-[#111] dark:bg-white text-white dark:text-[#111] text-lg"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-8 text-[#111] dark:text-white border-b border-[#111] dark:border-white hover:opacity-70 transition-opacity text-lg"
+                >
+                  GitHub →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

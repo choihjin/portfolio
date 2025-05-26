@@ -1,69 +1,78 @@
 export interface Project {
-  name: string;
+  title: string;
   date: string;
   description: string;
   link: string;
-  tags: string[];
+  tech: string[];
+  image?: string;
 }
 
-export const teamProjects: Project[] = [
+export const projects: Project[] = [
   {
-    name: "SSABAB",
+    title: "SSABAB",
     date: "2025.04~2025.06",
     description: "SSAFY 13th 팀 프로젝트",
     link: "https://github.com/ssabab/ssabab-mlops",
-    tags: ["Python", "BeautifulSoup", "Pandas"]
+    tech: ["Apache Airflow", "Apache Kafka", "Apache Spark", "MLFlow", "FastAPI", "MySQL", "Docker"],
+    image: "/projects/ssabab.png"
   },
   {
-    name: "LPR2",
+    title: "LPR2",
     date: "2023.06~2024.12",
     description: "딥러닝을 활용한 도로 영상 복원 기술 개발",
     link: "https://github.com/choihjin/SuperResolution",
-    tags: ["Python", "PyTorch", "TensorFlow", "OpenCV"]
+    tech: ["PyTorch", "TensorFlow", "OpenCV"],
+    image: "/projects/lpr2.png"
   },
   {
-    name: "Road Image De-identification",
+    title: "Road Image De-identification",
     date: "2023.06~2023.12",
     description: "도로 이미지의 개인정보 익명화 프로세스 개발",
     link: "https://github.com/choihjin/De-identification",
-    tags: ["Python", "PyTorch", "TensorFlow", "OpenCV"]
+    tech: ["PyTorch", "TensorFlow", "OpenCV"],
+    image: "/projects/deid.png"
   },
   {
-    name: "Root Image Recognition",
+    title: "Root Image Recognition",
     date: "2023.02~2023.06",
     description: "뿌리 이미지를 인식하는 AI 모델 개발",
     link: "https://github.com/choihjin/RootRecognition",
-    tags: ["Python", "CNN", "OpenCV"]
+    tech: ["TensorFlow", "sklearn", "OpenCV"],
+    image: "/projects/root.png"
   },
   {
-    name: "Smart Switch",
+    title: "Smart Switch",
     date: "2024.05~2024.06",
     description: "스마트 스위치 기능 구현",
     link: "https://github.com/choihjin/SmartSwitch",
-    tags: ["Python", "CNN", "OpenCV"]
-  }
-];
-
-export const personalProjects: Project[] = [
+    tech: ["C++",],
+    image: "/projects/smart.png"
+  },
   {
-    name: "SSAFIT",
+    title: "SSAFIT NEWS",
     date: "2025.04~2025.05",
     description: "IT 뉴스 데이터 수집 및 분석 프로젝트",
     link: "https://github.com/choihjin/news-data-project",
-    tags: ["Python", "BeautifulSoup", "Pandas"]
+    tech: ["Apache Airflow", "Apache Kafka","Apache Spark",
+      "Apache Flink", "Apache Hadoop", "Elasticsearch", 
+      "Docker", "PostgreSQL", "Django", "Vue"
+    ],
+    image: "/projects/ssafit.png"
   },
   {
-    name: "Vehicle Features",
+    title: "Vehicle Features",
     date: "2022.10~2022.12",
     description: "차량 관련 기능 구현 프로젝트",
     link: "https://github.com/choihjin/VehicleFeatures",
-    tags: ["C++", "OpenCV", "YOLO"]
+    tech: ["OpenCV"],
+    image: "/projects/vehicle.png"
   },
   {
-    name: "Portfolio",
+    title: "Portfolio",
     date: "2025.03~Present",
     description: "개인 포트폴리오 웹사이트",
     link: "https://github.com/choihjin/portfolio",
-    tags: ["Vue.js", "Tailwind CSS"]
+    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/portfolio.png"
   }
 ];

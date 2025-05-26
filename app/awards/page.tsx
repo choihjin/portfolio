@@ -1,54 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import { awards, certificates } from "./awards-data";
+import { awards } from "./awards-data";
 
 export default function Awards() {
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium">Awards & Honor</h1>
-      <div>
-        {awards.map((award, index) => (
-          <div
-            key={index}
-            className="flex flex-col space-y-1 mb-5 transition-opacity duration-200"
-          >
-            <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-              <h2 className="text-black dark:text-white">{award.title}</h2>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                {award.date}
-              </p>
+    <div className="min-h-screen bg-[#fafafa] dark:bg-[#111]">
+      <div className="max-w-5xl mx-auto px-6 py-32">
+        <h1 className="text-7xl font-bold text-[#111] dark:text-white mb-16">
+          Awards
+        </h1>
+        <div className="space-y-16">
+          {awards.map((award, index) => (
+            <div key={index} className="relative">
+              <div className="absolute -left-4 top-0 w-1 h-full bg-[#111] dark:bg-white" />
+              <div className="pl-8">
+                <div className="text-sm text-[#666] dark:text-[#999] mb-2">
+                  {award.date}
+                </div>
+                <h2 className="text-3xl font-bold text-[#111] dark:text-white mb-4">
+                  {award.title}
+                </h2>
+                <div className="text-[#666] dark:text-[#999] mb-2">
+                  {award.organizer}
+                </div>
+                <div className="text-2xl font-bold text-[#111] dark:text-white">
+                  {award.rank}
+                </div>
+              </div>
             </div>
-            {award.organizer && (
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                {award.organizer}
-              </p>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <h1 className="mt-16 mb-8 text-2xl font-medium">Certificate</h1>
-      <div>
-        {certificates.map((certificate, index) => (
-          <div
-            key={index}
-            className="flex flex-col space-y-1 mb-5 transition-opacity duration-200"
-          >
-            <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-              <h2 className="text-black dark:text-white">{certificate.title}</h2>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                {certificate.date}
-              </p>
-            </div>
-            {certificate.organizer && (
-              <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                {certificate.organizer}
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
+    </div>
   );
 } 

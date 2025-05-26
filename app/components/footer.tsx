@@ -23,14 +23,18 @@ function SocialLink({ href, icon: Icon }) {
 
 function SocialLinks() {
   return (
-    <div className="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
+    <div className="flex gap-4 items-center">
       <SocialLink href={socialLinks.twitter} icon={FaXTwitter} />
       <SocialLink href={socialLinks.github} icon={FaGithub} />
       <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-      <a href="/rss.xml" target="_self">
-        <FaRss />
+      <a 
+        href="/rss.xml" 
+        target="_self"
+        className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+      >
+        <FaRss className="w-5 h-5" />
       </a>
     </div>
   );
@@ -38,25 +42,25 @@ function SocialLinks() {
 
 export default function Footer() {
   return (
-    <small className="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
-      <time>© {YEAR}</time>{" "}
-      <a
-        className="no-underline"
-        href={socialLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {metaData.title}
-      </a>
-      <style jsx>{`
-        @media screen and (max-width: 480px) {
-          article {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-          }
-        }
-      `}</style>
-      <SocialLinks />
-    </small>
+    <footer className="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+      <div className="max-w-5xl mx-auto px-6 py-12">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-neutral-600 dark:text-neutral-400 text-lg">
+            <time>© {YEAR}</time>{" "}
+            <a
+              className="text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
+              href={socialLinks.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {metaData.title}
+            </a>
+          </div>
+          <div className="flex gap-6">
+            <SocialLinks />
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

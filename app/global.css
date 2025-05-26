@@ -36,6 +36,18 @@
 
 html {
   min-width: 360px;
+  max-width: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px; /* 또는 원하시는 최대 너비 */
+  margin: 0 auto;
 }
 
 .prose {
