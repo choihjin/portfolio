@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { socialLinks } from "./config";
-import { SiPytorch, 
+import { 
+  SiPytorch, 
   SiMlflow, 
   SiHuggingface,
   SiApachespark, 
@@ -17,15 +18,12 @@ import { SiPytorch,
   SiGit, 
   SiGithub, 
   SiGitlab,
-  SiVuejs,
   SiNextdotjs,
   SiTailwindcss,
-  SiOpenCV,
   SiTensorflow,
   SiPandas,
   SiCplusplus,
   SiApacheflink,
-  SiSklearn,
   SiTypescript,
 } from "react-icons/si";
 import { projects } from "./projects/project-data";
@@ -81,51 +79,9 @@ const navItems = {
   "/others": { name: "Others" },
 };
 
-export function Navbar() {
+export default function Home() {
   const pathname = usePathname();
 
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#111]/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between py-4">
-          <div className="flex items-center">
-            <Link 
-              href="/" 
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-all duration-300"
-            >
-              {metaData.title}
-            </Link>
-          </div>
-          <div className="flex flex-row gap-6 mt-4 md:mt-0 md:ml-auto items-center">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              const isActive = pathname === path;
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className={`relative text-base font-medium transition-all duration-300 ${
-                    isActive 
-                      ? "text-blue-600 dark:text-blue-400" 
-                      : "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
-                  }`}
-                >
-                  {name}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
-            <div className="h-6 w-px bg-gray-200 dark:bg-gray-800 mx-2" />
-            <ThemeSwitch />
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
-export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
       {/* Hero Section */}
@@ -276,20 +232,8 @@ export default function Page() {
                         case "TypeScript":
                           Icon = SiTypescript;
                           break;
-                        case "Vue":
-                          Icon = SiVuejs;
-                          break;
-                        case "OpenCV":
-                          Icon = SiOpenCV;
-                          break;
-                        case "TensorFlow":
-                          Icon = SiTensorflow;
-                          break;
                         case "C++":
                           Icon = SiCplusplus;
-                          break;
-                        case "sklearn":
-                          Icon = SiSklearn;
                           break;
                         default:
                           Icon = skills.flatMap(skill => skill.items)
