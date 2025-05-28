@@ -36,12 +36,12 @@ export default function Projects() {
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-4">
-                    {project.tech.map((tech, idx) => (
+                    {project.techStack.map((tech, idx) => (
                       <span
                         key={idx}
                         className="px-6 py-3 bg-[#111] dark:bg-white text-white dark:text-[#111] text-lg"
                       >
-                        {tech}
+                        {tech.category}
                       </span>
                     ))}
                   </div>

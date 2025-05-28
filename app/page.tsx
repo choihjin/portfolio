@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { socialLinks } from "./config";
+import * as Icons from "react-icons/si";
 import { 
   SiPytorch, 
   SiMlflow, 
@@ -31,7 +32,6 @@ import { awards } from "./awards/awards-data";
 import { activities } from "./others/others-data";
 import Link from "next/link";
 import { ThemeSwitch } from "./components/theme-switch";
-import { usePathname } from "next/navigation";
 
 const skills = [
   {
@@ -73,15 +73,7 @@ const skills = [
   },
 ];
 
-const navItems = {
-  "/projects": { name: "Projects" },
-  "/awards": { name: "Awards" },
-  "/others": { name: "Others" },
-};
-
 export default function Home() {
-  const pathname = usePathname();
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
       {/* Hero Section */}
@@ -187,7 +179,11 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+              <Link
+                key={index}
+                href={`/projects/${project.id}`}
+                className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1"
+              >
                 {project.image && (
                   <div className="aspect-video overflow-hidden">
                     <img
@@ -202,16 +198,17 @@ export default function Home() {
                     <div className="text-base text-[#666] dark:text-[#999]">
                       {project.date}
                     </div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#111] dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open(project.link, '_blank');
+                      }}
+                      className="text-[#111] dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                       </svg>
-                    </a>
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold text-[#111] dark:text-white mb-4">
                     {project.title}
@@ -220,110 +217,23 @@ export default function Home() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    {project.tech.map((tech, idx) => {
-                      let Icon;
-                      switch (tech) {
-                        case "Next.js":
-                          Icon = SiNextdotjs;
-                          break;
-                        case "Tailwind CSS":
-                          Icon = SiTailwindcss;
-                          break;
-                        case "TypeScript":
-                          Icon = SiTypescript;
-                          break;
-                        case "C++":
-                          Icon = SiCplusplus;
-                          break;
-                        default:
-                          Icon = skills.flatMap(skill => skill.items)
-                            .find(item => item.name === tech)?.icon;
-                      }
-                      
-                      return (
-                        <div key={idx} className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] rounded-full text-[#666] dark:text-[#999] group-hover:bg-gray-200 dark:group-hover:bg-[#333] transition-all duration-300">
-                          {Icon && <Icon className="w-5 h-5" />}
-                          <span className="text-sm font-medium">{tech}</span>
-                        </div>
-                      );
-                    })}
+                    {project.techStack.flatMap((category, categoryIndex) => 
+                      category.items.map((item, itemIndex) => {
+                        const Icon = (Icons as any)[item.icon];
+                        return (
+                          <div 
+                            key={`${categoryIndex}-${itemIndex}-${item.name}`} 
+                            className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] rounded-full text-[#666] dark:text-[#999] group-hover:bg-gray-200 dark:group-hover:bg-[#333] transition-all duration-300"
+                          >
+                            {Icon && <Icon className="w-5 h-5" />}
+                            <span className="text-sm font-medium">{item.name}</span>
+                          </div>
+                        );
+                      })
+                    )}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Awards Section */}
-      <section className="py-20 bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
-        <div className="w-full max-w-[1200px] px-8 mx-auto">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#111] dark:text-white mb-16 text-center">
-            Awards
-          </h2>
-          <div className="space-y-8">
-            {awards.map((award, index) => (
-              <div key={index} className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 rounded-full bg-blue-600 dark:bg-blue-400 flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-2xl font-bold">
-                      {award.title?.charAt(0) || 'A'}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="text-base text-[#666] dark:text-[#999] mb-2">
-                      {award.date}
-                    </div>
-                    <h3 className="text-xl font-bold text-[#111] dark:text-white mb-2">
-                      {award.title}
-                    </h3>
-                    <div className="text-base text-[#666] dark:text-[#999] mb-2">
-                      {award.organizer}
-                    </div>
-                    <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
-                      {award.rank || '수상'}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Activities Section */}
-      <section className="py-20 bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
-        <div className="w-full max-w-[1200px] px-8 mx-auto">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#111] dark:text-white mb-16 text-center">
-            Activities
-          </h2>
-          <div className="space-y-8">
-            {activities.map((activity, index) => (
-              <div key={index} className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="p-8">
-                  <div className="flex items-center gap-6 mb-4">
-                    <div className="w-16 h-16 rounded-full bg-blue-600 dark:bg-blue-400 flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-2xl font-bold">
-                        {activity.title.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="text-base text-[#666] dark:text-[#999] mb-2">
-                        {activity.date}
-                      </div>
-                      <h3 className="text-xl font-bold text-[#111] dark:text-white mb-2">
-                        {activity.title}
-                      </h3>
-                      <div className="text-base text-[#666] dark:text-[#999]">
-                        {activity.role}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-base text-[#666] dark:text-[#999] pl-24">
-                    {activity.description}
-                  </p>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
