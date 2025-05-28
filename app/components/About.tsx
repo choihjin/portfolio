@@ -1,4 +1,4 @@
-import { socialLinks } from '@/lib/data';
+import { socialLinks } from '../config';
 
 export default function About() {
   return (

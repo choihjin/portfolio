@@ -1,4 +1,4 @@
-import { FaTwitter, FaGithub, FaInstagram, FaLinkedin, FaBlog } from 'react-icons/fa';
+import { FaTwitter, FaGithub, FaInstagram, FaLinkedin, FaBlog, FaEnvelope } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
 export const metaData = {
@@ -33,8 +33,8 @@ export const socialLinks = [
   },
   {
     name: 'Email',
-    url: "mailto:jjin6573@gmail.com",
-    icon: MdEmail
+    url: "mailto:choihjin@handong.ac.kr",
+    icon: FaEnvelope
   }
 ];
 
