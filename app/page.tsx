@@ -32,6 +32,7 @@ import { awards } from "./awards/awards-data";
 import { activities } from "./others/others-data";
 import Link from "next/link";
 import { ThemeSwitch } from "./components/theme-switch";
+import { usePathname } from "next/navigation";
 
 const skills = [
   {
@@ -73,7 +74,15 @@ const skills = [
   },
 ];
 
+const navItems = {
+  "/projects": { name: "Projects" },
+  "/awards": { name: "Awards" },
+  "/others": { name: "Others" },
+};
+
 export default function Home() {
+  const pathname = usePathname();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
       {/* Hero Section */}
@@ -234,6 +243,80 @@ export default function Home() {
                   </div>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section className="py-20 bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
+        <div className="w-full max-w-[1200px] px-8 mx-auto">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#111] dark:text-white mb-16 text-center">
+            Awards
+          </h2>
+          <div className="space-y-8">
+            {awards.map((award, index) => (
+              <div key={index} className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex items-center gap-6">
+                  <div className="w-16 h-16 rounded-full bg-blue-600 dark:bg-blue-400 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-2xl font-bold">
+                      {award.title?.charAt(0) || 'A'}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-base text-[#666] dark:text-[#999] mb-2">
+                      {award.date}
+                    </div>
+                    <h3 className="text-xl font-bold text-[#111] dark:text-white mb-2">
+                      {award.title}
+                    </h3>
+                    <div className="text-base text-[#666] dark:text-[#999] mb-2">
+                      {award.organizer}
+                    </div>
+                    <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                      {award.rank || '수상'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Activities Section */}
+      <section className="py-20 bg-gradient-to-b from-[#fafafa] to-white dark:from-[#111] dark:to-[#1a1a1a]">
+        <div className="w-full max-w-[1200px] px-8 mx-auto">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#111] dark:text-white mb-16 text-center">
+            Activities
+          </h2>
+          <div className="space-y-8">
+            {activities.map((activity, index) => (
+              <div key={index} className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="p-8">
+                  <div className="flex items-center gap-6 mb-4">
+                    <div className="w-16 h-16 rounded-full bg-blue-600 dark:bg-blue-400 flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-2xl font-bold">
+                        {activity.title.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="text-base text-[#666] dark:text-[#999] mb-2">
+                        {activity.date}
+                      </div>
+                      <h3 className="text-xl font-bold text-[#111] dark:text-white mb-2">
+                        {activity.title}
+                      </h3>
+                      <div className="text-base text-[#666] dark:text-[#999]">
+                        {activity.role}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-base text-[#666] dark:text-[#999] pl-24">
+                    {activity.description}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
