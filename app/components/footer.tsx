@@ -1,22 +1,20 @@
 "use client";
 
 import React from "react";
-import {
-  FaXTwitter,
-  FaGithub,
-  FaInstagram,
-  FaRss,
-  FaLinkedinIn,
-} from "react-icons/fa6";
-import { TbMailFilled } from "react-icons/tb";
+import { FaRss } from "react-icons/fa6";
 import { metaData, socialLinks } from "app/config";
 
 const YEAR = new Date().getFullYear();
 
-function SocialLink({ href, icon: Icon }) {
+function SocialLink({ href, icon: Icon }: { href: string; icon: any }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <Icon />
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#666] dark:text-[#999] hover:text-[#111] dark:hover:text-white transition-colors"
+    >
+      <Icon className="w-5 h-5" />
     </a>
   );
 }
@@ -24,11 +22,9 @@ function SocialLink({ href, icon: Icon }) {
 function SocialLinks() {
   return (
     <div className="flex gap-4 items-center">
-      <SocialLink href={socialLinks.twitter} icon={FaXTwitter} />
-      <SocialLink href={socialLinks.github} icon={FaGithub} />
-      <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
-      <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-      <SocialLink href={socialLinks.email} icon={TbMailFilled} />
+      {socialLinks.map((link, index) => (
+        <SocialLink key={index} href={link.url} icon={link.icon} />
+      ))}
       <a 
         href="/rss.xml" 
         target="_self"
@@ -47,14 +43,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-neutral-600 dark:text-neutral-400 text-lg">
             <time>© {YEAR}</time>{" "}
-            <a
-              className="text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
-              href={socialLinks.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <span className="text-neutral-900 dark:text-neutral-100">
               {metaData.title}
-            </a>
+            </span>
           </div>
           <div className="flex gap-6">
             <SocialLinks />
