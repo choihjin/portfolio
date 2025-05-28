@@ -1,4 +1,5 @@
 import { socialLinks } from '../config';
+import { skills } from '../lib/data';
 
 export default function About() {
   return (
