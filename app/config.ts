@@ -42,20 +42,20 @@ export const siteConfig = {
       href: "/",
     },
     {
+      title: "Skills",
+      href: "#skills",
+    },
+    {
       title: "Projects",
-      href: "/projects",
+      href: "#projects",
     },
     {
-      title: "Awards & Honor",
-      href: "/awards",
-    },
-    {
-      title: "Others",
-      href: "/others",
-    },
+      title: "Activities",
+      href: "#activities",
+    }
   ],
   links: {
-    github: "https://github.com/yourgithub",
-    linkedin: "https://linkedin.com/in/yourlinkedin",
+    github: "https://github.com/choihjin",
+    linkedin: "https://www.linkedin.com/in/%ED%98%81%EC%A7%84-%EC%B5%9C-772649364/",
   },
 }

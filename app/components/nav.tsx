@@ -5,9 +5,9 @@ import { ThemeSwitch } from "./theme-switch";
 import { metaData } from "../config";
 
 const navItems = {
+  "skills": { name: "Skills" },
   "projects": { name: "Projects" },
-  "awards": { name: "Awards" },
-  "others": { name: "Others" },
+  "activities": { name: "Activities" },
 };
 
 export function Navbar() {

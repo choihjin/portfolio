@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* 3분할 섹션 */}
-      <section className="pt-0 pb-32 bg-white dark:bg-[#181818]">
+      <section id="skills" className="pt-0 pb-32 bg-white dark:bg-[#181818]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
           {/* 왼쪽: Education + Awards */}
           <div className="flex flex-col justify-between h-full gap-12">
@@ -241,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="pt-0 pb-32 bg-white dark:bg-[#181818]">
+      <section id="projects" className="pt-0 pb-32 bg-white dark:bg-[#181818]">
         <div className="w-full max-w-[1200px] px-8 mx-auto">
           <h2 className="text-3xl font-extrabold mb-8">PROJECTS</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -307,7 +307,7 @@ export default function Home() {
       </section>
 
       {/* Activities Section */}
-      <section className="pt-0 pb-16 bg-white dark:bg-[#181818]">
+      <section id="activities" className="pt-0 pb-16 bg-white dark:bg-[#181818]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-extrabold mb-6">ACTIVITIES</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
