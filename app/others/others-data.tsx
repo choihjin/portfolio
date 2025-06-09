@@ -8,18 +8,18 @@ export interface Activity {
 
 export const activities: Activity[] = [
   {
+    date: "2023 ~ 2024",
+    title: "HGU Deep Learning Lab",
+    role: "학부연구생",
+    description: "Deep Learning 연구실에서 산학 연구를 진행하였습니다.",
+    image: "/activities/research.png"
+  },
+  {
     date: "2023.06 ~ 2024.12",
     title: "GHOST(Global Handong Oriented Security Team)",
     role: "동아리원",
     description: "보안 및 알고리즘 스터디를 진행하였습니다.",
     image: "/activities/ghost.png"
-  },
-  {
-    date: "2023 ~ 2024",
-    title: "Deep Learning 연구",
-    role: "학부연구생",
-    description: "Deep Learning 연구실에서 산학 연구를 진행하였습니다.",
-    image: "/activities/research.png"
   },
   {
     date: "2022, 2023",
@@ -42,4 +42,4 @@ export const activities: Activity[] = [
     description: "미적분학 수업을 수강하는 학생들을 대상으로 수업 내용을 이해하도록 도와주는 튜터 역할을 수행하였습니다.",
     image: "/activities/tutoring.png"
   }
-]; 
+];

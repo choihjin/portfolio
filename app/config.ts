@@ -22,18 +22,13 @@ export const socialLinks = [
     icon: FaGithub
   },
   {
-    name: 'Instagram',
-    url: "https://www.instagram.com/",
-    icon: FaInstagram
-  },
-  {
     name: 'LinkedIn',
     url: "https://www.linkedin.com/in/%ED%98%81%EC%A7%84-%EC%B5%9C-772649364/",
     icon: FaLinkedin
   },
   {
     name: 'Email',
-    url: "mailto:choihjin@handong.ac.kr",
+    url: "mailto:jjin6573@naver.com",
     icon: FaEnvelope
   }
 ];

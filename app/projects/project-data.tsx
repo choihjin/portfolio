@@ -354,9 +354,9 @@ export const projects: Project[] = [
   },
   {
     id: "lpr2",
-    title: "LPR2",
+    title: "MF-LPR2",
     date: "2023.06 ~ 2024.12",
-    description: `( License Plate Restoration & Recognition )
+    description: `Multi-Frame License Plate Restoration & Recognition
       블랙박스 영상에서 흐릿한 자동차 번호판을 고화질로 복원하는 딥러닝 기반 화질 개선 시스템입니다.`,
     link: "https://github.com/choihjin/LPR2",
     image: "/images/lpr2/structure.png",
