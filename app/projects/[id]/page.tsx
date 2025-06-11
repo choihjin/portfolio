@@ -318,21 +318,24 @@ export default function ProjectDetail() {
                   />
                 )}
                 {project.presentation.type === 'image' && (
-                  <img
-                    src={project.presentation.url as string}
-                    alt="발표자료 이미지"
-                    className="rounded-lg shadow-lg w-full h-auto object-contain"
-                  />
+                  <div className="max-h-[80vh] overflow-y-auto">
+                    <img
+                      src={project.presentation.url as string}
+                      alt="발표자료 이미지"
+                      className="rounded-lg shadow-lg w-full h-auto object-contain"
+                    />
+                  </div>
                 )}
                 {project.presentation.type === 'images' && (
                   <div className="flex flex-col gap-8">
                     {(project.presentation.url as string[]).map((image, index) => (
-                      <img
-                        key={index}
-                        src={image}
-                        alt={`발표자료 이미지 ${index + 1}`}
-                        className="rounded-lg shadow-lg w-full h-auto object-contain"
-                      />
+                      <div key={index} className="max-h-[80vh] overflow-y-auto">
+                        <img
+                          src={image}
+                          alt={`발표자료 이미지 ${index + 1}`}
+                          className="rounded-lg shadow-lg w-full h-auto object-contain"
+                        />
+                      </div>
                     ))}
                   </div>
                 )}
