@@ -147,62 +147,62 @@ export default function Home() {
       <section id="skills" className="pt-0 pb-32 bg-white dark:bg-[#181818]">
         <div className="w-full max-w-7xl px-8 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-            {/* 왼쪽: Education + Awards */}
-            <div className="flex flex-col justify-between h-full gap-12">
-              {/* Education / Experience */}
-              <div>
+          {/* 왼쪽: Education + Awards */}
+          <div className="flex flex-col justify-between h-full gap-12">
+            {/* Education / Experience */}
+            <div>
                 <h2 className="text-3xl font-extrabold mb-8">EDUCATION</h2>
-                <ul className="space-y-6 text-xl">
-                  <li>
-                    <div className="flex">
-                      <span className="min-w-[13rem]">2025.01 ~ present</span>
-                      <div>
-                        <span className="font-bold">삼성 청년 SW 아카데미 13th</span>
-                        <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
-                          <div>Data Track</div>
-                        </div>
+              <ul className="space-y-6 text-xl">
+                <li>
+                  <div className="flex">
+                    <span className="min-w-[13rem]">2025.01 ~ present</span>
+                    <div>
+                      <span className="font-bold">삼성 청년 SW 아카데미 13th</span>
+                      <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
+                        <div>Data Track</div>
                       </div>
                     </div>
-                  </li>
-                  <li>
-                    <div className="flex">
-                      <span className="min-w-[13rem]">2019.03 ~ 2025.02</span>
-                      <div>
-                        <span className="font-bold">한동대학교 AI 컴퓨터공학심화</span>
-                        <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
-                          <div>4.01 / 4.5</div>
-                          <div>4.27 / 4.5 ( Major )</div>
-                        </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex">
+                    <span className="min-w-[13rem]">2019.03 ~ 2025.02</span>
+                    <div>
+                      <span className="font-bold">한동대학교 AI 컴퓨터공학심화</span>
+                      <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
+                        <div>4.01 / 4.5</div>
+                        <div>4.27 / 4.5 ( Major )</div>
                       </div>
                     </div>
-                  </li>
-                </ul>
-              </div>
-              {/* Awards / Certificates */}
-              <div>
-                <h2 className="text-3xl font-extrabold mb-8">AWARDS / CERTIFICATES</h2>
-                <ul className="space-y-6 text-xl">
-                  {awards.map((award, idx) => (
-                    <li key={idx}>
-                      <div className="flex">
-                        <span className="min-w-[10rem]">{award.date}</span>
-                        <div>
-                          <div>
-                            <span className="font-bold">{award.title}</span>
-                            {award.rank && award.rank !== "자격증" && (
-                              <span className="font-bold ml-2">{award.rank}</span>
-                            )}
-                          </div>
-                          <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
-                            {award.organizer}
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  </div>
+                </li>
+              </ul>
             </div>
+            {/* Awards / Certificates */}
+            <div>
+              <h2 className="text-3xl font-extrabold mb-8">AWARDS / CERTIFICATES</h2>
+              <ul className="space-y-6 text-xl">
+                {awards.map((award, idx) => (
+                  <li key={idx}>
+                    <div className="flex">
+                      <span className="min-w-[10rem]">{award.date}</span>
+                      <div>
+                        <div>
+                          <span className="font-bold">{award.title}</span>
+                          {award.rank && award.rank !== "자격증" && (
+                            <span className="font-bold ml-2">{award.rank}</span>
+                          )}
+                        </div>
+                        <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
+                          {award.organizer}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
             {/* 세로 구분선 + Skills */}
             <div className="relative">
               {/* 세로 구분선 */}
@@ -210,7 +210,7 @@ export default function Home() {
               {/* Skills 카드 */}
               <h2 className="text-3xl font-extrabold mb-6">SKILLS</h2>
               <div className="grid grid-cols-2 gap-4">
-                {skills.map((skill, idx) => (
+              {skills.map((skill, idx) => (
                   <div key={idx} className="group bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700">
                     <div className="p-5">
                       <h3 className="font-bold text-xl mb-4 text-blue-600 dark:text-blue-400">
@@ -218,7 +218,7 @@ export default function Home() {
                       </h3>
                       <div className="space-y-4">
                         <ul className="space-y-3">
-                          {skill.items.map((item, i) => (
+                    {skill.items.map((item, i) => (
                             <li key={i} className="flex items-center gap-3 text-base">
                               <item.icon className="w-5 h-5 text-[#666] dark:text-[#999]" />
                               <span className="text-[#666] dark:text-[#999]">{item.name}</span>
@@ -231,14 +231,14 @@ export default function Home() {
                               <li key={i} className="text-sm text-[#666] dark:text-[#999] flex items-start">
                                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
                                 {capability}
-                              </li>
-                            ))}
-                          </ul>
+                      </li>
+                    ))}
+                  </ul>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                </div>
+              ))}
               </div>
             </div>
           </div>

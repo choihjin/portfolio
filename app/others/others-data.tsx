@@ -42,4 +42,4 @@ export const activities: Activity[] = [
     description: "미적분학 수업을 수강하는 학생들을 대상으로 수업 내용을 이해하도록 도와주는 튜터 역할을 수행하였습니다.",
     image: "/activities/tutoring.png"
   }
-];
+]; 

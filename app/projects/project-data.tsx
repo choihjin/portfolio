@@ -78,6 +78,15 @@ export interface Project {
     title: string;
     link: string;
   }[];
+  
+  // 수상 내역 (선택)
+  awards?: string[];
+  
+  // 발표 자료 (선택)
+  presentation?: {
+    type: 'pdf' | 'image' | 'images';  // 발표 자료 타입
+    url: string | string[];            // 발표 자료 URL
+  };
 }
 
 export const projects: Project[] = [
@@ -350,7 +359,14 @@ export const projects: Project[] = [
         title: "Backend Github Repository",
         link: "https://github.com/choihjin/news-back-project"
       }
-    ]
+    ],
+    awards: [
+      "2025.05.29 1학기 프로젝트 우수상 수상 (삼성전자)"
+    ],
+    presentation: {
+      type: 'pdf',
+      url: '/pdfs/SSAFIT_NEWS.pdf'
+    },
   },
   {
     id: "lpr2",
@@ -496,7 +512,11 @@ export const projects: Project[] = [
         title: "TCDM (Scene Text Restoration)",
         link: "https://arxiv.org/abs/2203.09388"
       }
-    ]
+    ],
+    presentation: {
+      type: 'image',
+      url: '/images/lpr2/capstone_panel.png'
+    }
   },
   {
     id: "deid",
@@ -638,7 +658,11 @@ export const projects: Project[] = [
         title: "License Plate Segmentation",
         link: "https://github.com/dbpprt/pytorch-licenseplate-segmentation"
       }
-    ]
+    ],
+    presentation: {
+      type: 'image',
+      url: '/images/deid/capstone_panel.png'
+    }
   },
   {
     id: "root",
@@ -764,6 +788,10 @@ export const projects: Project[] = [
         "python model/train.py",
         "python model/infer.py --image example/input1.png"
       ]
+    },
+    presentation: {
+      type: 'pdf',
+      url: '/pdfs/root.pdf'
     }
   },
   // {
@@ -923,7 +951,7 @@ VehicleFeatures/
         "OpenCV 4.x가 필요합니다",
         "YOLO v4-tiny 모델 파일이 필요합니다"
       ]
-    }
+    },
   },
   {
     id: "portfolio",
@@ -984,6 +1012,7 @@ VehicleFeatures/
         "Node.js와 npm이 필요합니다",
         "Next.js 13+가 필요합니다"
       ]
-    }
+    },
   }
 ];
+

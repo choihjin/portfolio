@@ -287,6 +287,59 @@ export default function ProjectDetail() {
             </div>
           )}
 
+          {/* 수상 내역 */}
+          {project.awards && project.awards.length > 0 && (
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-[#111] dark:text-white mb-6">수상 내역</h2>
+              <div className="bg-white/80 font-bold dark:bg-[#1a1a1a]/80 rounded-xl p-6 shadow-lg">
+                <ul className="space-y-4">
+                  {project.awards.map((award, idx) => (
+                    <li key={idx} className="text-[#666] dark:text-[#999] text-lg">
+                      {award}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
+
+          {/* 발표자료 */}
+          {project.presentation && (
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-[#111] dark:text-white mb-6">발표자료</h2>
+              <div className="bg-white/80 dark:bg-[#1a1a1a]/80 rounded-xl p-6 shadow-lg">
+                {project.presentation.type === 'pdf' && (
+                  <iframe
+                    src={project.presentation.url as string}
+                    width="100%"
+                    height="600px"
+                    className="rounded-lg border border-gray-200 dark:border-gray-700"
+                    title="발표자료 PDF"
+                  />
+                )}
+                {project.presentation.type === 'image' && (
+                  <img
+                    src={project.presentation.url as string}
+                    alt="발표자료 이미지"
+                    className="rounded-lg shadow-lg w-full h-auto object-contain"
+                  />
+                )}
+                {project.presentation.type === 'images' && (
+                  <div className="flex flex-col gap-8">
+                    {(project.presentation.url as string[]).map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={`발표자료 이미지 ${index + 1}`}
+                        className="rounded-lg shadow-lg w-full h-auto object-contain"
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* 참고 문헌 */}
           {project.references && (
             <div className="mb-16">
