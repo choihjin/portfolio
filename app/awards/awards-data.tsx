@@ -37,6 +37,12 @@ export const awards: Award[] = [
   },
   {
     date: "2025.06.13",
+    title: "정보처리기사",
+    organizer: "한국산업인력공단",
+    rank: "자격증"
+  },
+  {
+    date: "2025.06.13",
     title: "ADsP",
     organizer: "한국데이터산업진흥원",
     rank: "자격증"
@@ -48,16 +54,3 @@ export const awards: Award[] = [
     rank: "자격증"
   },
 ];
-
-export const certificates: Award[] = [
-  {
-    date: "2025.06",
-    title: "정보처리기사",
-    organizer: "한국산업인력공단",
-  },
-  {
-    date: "2025.04",
-    title: "SQLD",
-    organizer: "한국데이터산업진흥원",
-  },
-]; 
