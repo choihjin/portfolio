@@ -192,6 +192,9 @@ export default function Home() {
                           {award.rank && award.rank !== "자격증" && (
                             <span className="font-bold ml-2">{award.rank}</span>
                           )}
+                          {award.rank === "자격증" && award.certificateNumber && (
+                            <span className="ml-2 text-sm text-[#888] dark:text-[#aaa] mt-1">{award.certificateNumber}</span>
+                          )}
                         </div>
                         <div className="text-sm text-[#888] dark:text-[#aaa] mt-1">
                           {award.organizer}

@@ -3,6 +3,7 @@ export interface Award {
   title: string;
   organizer: string;
   rank?: string;
+  certificateNumber?: string;
 }
 
 export const awards: Award[] = [
@@ -36,21 +37,31 @@ export const awards: Award[] = [
     organizer: "",
   },
   {
+    date: "2025.07.11",
+    title: "빅데이터분석기사",
+    organizer: "한국데이터산업진흥원",
+    rank: "자격증",
+    certificateNumber: "BAE-010005702"
+  },
+  {
     date: "2025.06.13",
     title: "정보처리기사",
     organizer: "한국산업인력공단",
-    rank: "자격증"
+    rank: "자격증",
+    certificateNumber: "25201130443F"
   },
   {
     date: "2025.06.13",
     title: "ADsP",
     organizer: "한국데이터산업진흥원",
-    rank: "자격증"
+    rank: "자격증",
+    certificateNumber: "ADsP-045016294"
   },
   {
     date: "2025.04.04",
     title: "SQLD",
     organizer: "한국데이터산업진흥원",
-    rank: "자격증"
+    rank: "자격증",
+    certificateNumber: "SQLD-056017745"
   },
 ];
